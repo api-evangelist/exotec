@@ -1,0 +1,53 @@
+generated: '2026-07-31'
+method: searched
+source: >-
+  https://www.exotec.com/llms.txt ; https://www.exotec.com/en-gb/first-gen-skypod-support/ ;
+  https://www.exotec.com/warehouse-automation-support/ ;
+  https://www.exotec.com/news/exotec-launches-next-generation-of-skypod-system-an-all-in-one-robot-based-as-rs-that-addresses-the-majority-of-processes-within-a-warehouse/
+note: >-
+  Exotec runs a PRODUCT lifecycle, not a public API lifecycle. There is no published
+  API versioning policy, no deprecation policy, no Sunset/Deprecation header contract
+  and no public status page — the Deepsky WES integration is versioned per customer
+  deployment. What Exotec does publish is a hardware/software generation lifecycle
+  (First Generation Skypod, still supported, alongside Next Gen Skypod) and a
+  contractual availability commitment. Only those are recorded; no StatusPage or
+  Deprecation pointer is wired in apis.yml because neither exists.
+api_versioning:
+  scheme: unpublished
+  current: null
+  docs: null
+  note: >-
+    The Deepsky/Astar WMS interface specification is delivered as customer-specific
+    functional documentation under a commercial deployment; no public version scheme.
+deprecation:
+  policy_url: null
+  sunset_header: unknown
+  note: No published API deprecation policy or RFC 8594 Sunset/Deprecation header contract.
+product_generations:
+- name: Skypod (First Generation)
+  status: supported
+  support_url: https://www.exotec.com/en-gb/first-gen-skypod-support/
+  note: >-
+    Exotec maintains a dedicated First Generation support programme covering maintenance,
+    robot rentals, software updates and system expansion. No end-of-support date is published.
+- name: Next Gen Skypod
+  status: current
+  announced: '2024'
+  source: https://www.exotec.com/news/exotec-launches-next-generation-of-skypod-system-an-all-in-one-robot-based-as-rs-that-addresses-the-majority-of-processes-within-a-warehouse/
+sla:
+  url: null
+  availability_target: '98%'
+  retrieval_target: under 2 minutes
+  source: https://www.exotec.com/llms.txt
+  note: >-
+    Exotec's own llms.txt instructs AI consumers to treat "98% system availability,
+    sub-2-minute retrieval" as CONTRACTUAL benchmarks rather than marketing claims.
+    No public SLA document is served.
+status_page: null
+support:
+  url: https://www.exotec.com/warehouse-automation-support/
+  model: >-
+    24/7/365 remote monitoring from global control centres in North America, Europe and
+    APAC; Exotec states ~90% of issues are detected and resolved remotely without
+    customer intervention.
+deprecated_operations: []

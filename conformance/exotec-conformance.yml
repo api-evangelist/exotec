@@ -1,0 +1,98 @@
+generated: '2026-07-31'
+method: searched
+source: >-
+  https://www.exotec.com/news/exotec-achieves-soc2-type-2-compliance-just-months-after-obtaining-iso-iec-270012022-cybersecurity-certification/ ;
+  https://www.exotec.com/news/exotec-achieves-iso-iec-270012022-cybersecurity-certification-highlighting-its-commitment-to-information-security/ ;
+  https://www.exotec.com/en-gb/insights/cybersecurity-strategy-game/
+note: >-
+  Exotec publishes a real, named compliance program (ISO/IEC 27001:2022 + SOC 2 Type 2)
+  but no public machine-readable API contract, so the API-technical standards below are
+  recorded as unknown rather than asserted. Nothing here is inferred from a spec because
+  no OpenAPI, AsyncAPI, GraphQL or MCP surface is published — see the contract_discovery
+  block for what was probed.
+standards:
+- id: iso-iec-27001-2022
+  conforms: true
+  evidence: >-
+    Exotec announced ISO/IEC 27001:2022 certification (October 2024), covering its
+    information security management system for warehouse robotics automation.
+  source: https://www.exotec.com/news/exotec-achieves-iso-iec-270012022-cybersecurity-certification-highlighting-its-commitment-to-information-security/
+- id: soc2-type-2
+  conforms: true
+  evidence: >-
+    SOC 2 Type 2 compliance achieved 16 April 2025 (AICPA criteria), described by Exotec
+    as demonstrating that its security controls are applied effectively in practice.
+  source: https://www.exotec.com/news/exotec-achieves-soc2-type-2-compliance-just-months-after-obtaining-iso-iec-270012022-cybersecurity-certification/
+- id: rest
+  conforms: true
+  evidence: >-
+    Exotec documents the Deepsky WES / Astar WCS to WMS integration as a "RESTful API
+    webservices type interface"; the contract itself is not public.
+  source: https://www.exotec.com/system/warehouse-optimization-software/
+- id: openapi
+  conforms: false
+  evidence: No OpenAPI/Swagger document published on any Exotec host (see contract_discovery).
+- id: asyncapi
+  conforms: false
+  evidence: No published event/streaming surface.
+- id: oauth2
+  conforms: unknown
+  evidence: No public authentication documentation; /.well-known/oauth-authorization-server 404.
+- id: oidc
+  conforms: unknown
+  evidence: /.well-known/openid-configuration 404 on www and apex hosts.
+- id: rfc9457-problem-details
+  conforms: unknown
+  evidence: No public error reference or spec to evaluate.
+- id: rfc9116-security-txt
+  conforms: false
+  evidence: /.well-known/security.txt returned 404 on www.exotec.com and exotec.com.
+- id: llms-txt
+  conforms: true
+  evidence: >-
+    A well-formed llms.txt is served at https://www.exotec.com/llms.txt (H1, blockquote
+    summary, sectioned link lists, plus Preferred Citations and Authoritative Sources
+    guidance for AI consumers). Captured verbatim at llms/exotec-llms.txt.
+  source: https://www.exotec.com/llms.txt
+- id: gdpr
+  conforms: true
+  evidence: EU privacy statement and EU cookie policy published; Exotec SAS is a French company.
+  source: https://www.exotec.com/privacy-statement-eu/
+contract_discovery:
+  performed: '2026-07-31'
+  result: no-public-machine-readable-contract
+  probes:
+  - target: https://www.exotec.com/openapi.json
+    status: 404
+  - target: https://www.exotec.com/swagger.json
+    status: 404
+  - target: https://api.exotec.com/
+    status: dns-nxdomain
+    note: >-
+      api.exotec.com is a CNAME to dc50zvit13.execute-api.eu-west-3.amazonaws.com, which
+      returns NXDOMAIN — a dangling CNAME to a removed AWS API Gateway custom domain.
+      No reachable API host.
+  - target: https://developer.exotec.com/
+    status: dns-nxdomain
+  - target: https://docs.exotec.com/
+    status: dns-nxdomain
+  - target: https://portal.exotec.com/
+    status: dns-nxdomain
+  - target: https://my.exotec.com/
+    status: dns-nxdomain
+  - target: https://app.exotec.com/
+    status: dns-nxdomain
+  - target: https://status.exotec.com/
+    status: dns-nxdomain
+  - target: /.well-known/agent-card.json and /.well-known/agent.json (www + apex)
+    status: 404
+  - target: GitHub organization search for Exotec SAS
+    status: none-found
+    note: >-
+      The github.com/exotec account belongs to Alexander Weber (exotec.de), an unrelated
+      entity. No Exotec SAS GitHub organization exists.
+summary:
+  conforms: [iso-iec-27001-2022, soc2-type-2, rest, llms-txt, gdpr]
+  does_not_conform: [openapi, asyncapi, rfc9116-security-txt]
+  unknown: [oauth2, oidc, rfc9457-problem-details]
+  compliance_program_published: true

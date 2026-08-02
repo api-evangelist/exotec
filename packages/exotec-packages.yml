@@ -1,0 +1,52 @@
+generated: '2026-07-31'
+method: searched
+source: >-
+  https://registry.npmjs.org/-/v1/search?text=exotec ; https://pypi.org/pypi/exotec/json ;
+  https://rubygems.org/api/v1/search.json?query=exotec
+note: >-
+  Exotec publishes no client SDK for the Deepsky WES / Astar WCS REST interface. That
+  interface is delivered to integration customers as project-specific documentation
+  under a commercial deployment, not as a public developer program, so there is no
+  first-party client library on any public registry. One npm package is published from
+  an @exotec.com maintainer address, but it is an internal HTTP-error-simulation test
+  harness rather than an API client — it is recorded for completeness and does NOT
+  qualify as an SDK, so no `SDKs` pointer is wired in apis.yml.
+packages:
+- language: javascript
+  registry: npm
+  name: exotec-error-server
+  url: https://www.npmjs.com/package/exotec-error-server
+  install: npm install exotec-error-server
+  version: 1.0.0
+  license: MIT
+  official: true
+  kind: test-utility
+  description: HTTP error simulation server for Exotec tests (Playwright); simulates 502/503/504 responses.
+  maintainer: cyrille.delplanque@exotec.com
+  is_api_client: false
+excluded:
+- name: '@exotec/vue-uikit'
+  registry: npm
+  reason: >-
+    Published by weber@exotec.de — a different, unrelated entity (Exotec GmbH, exotec.de),
+    not Exotec SAS (exotec.com). Not first-party to this provider.
+- name: '@exotec/test-component-library'
+  registry: npm
+  reason: Same unrelated exotec.de maintainer as @exotec/vue-uikit.
+registries_probed:
+- registry: npm
+  status: searched
+  first_party_hits: 1
+- registry: pypi
+  status: 404
+  first_party_hits: 0
+- registry: rubygems
+  status: 200
+  first_party_hits: 0
+- registry: packagist
+  status: not-searched
+  note: no evidence of a PHP client anywhere in Exotec documentation
+summary:
+  official_sdks: 0
+  official_packages: 1
+  languages: [javascript]

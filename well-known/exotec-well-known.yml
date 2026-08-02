@@ -1,0 +1,56 @@
+generated: '2026-07-31'
+method: probed
+source: live HTTP probes of exotec.com hosts
+note: >-
+  No RFC 8615 well-known discovery documents are served by Exotec. Every canonical
+  path returned 404 on both the www and apex hosts. The only machine-readable
+  document served at a conventional root path is /llms.txt (captured verbatim in
+  llms/exotec-llms.txt). Recorded here as an honest negative result; no WellKnown
+  pointer is wired in apis.yml because nothing was found.
+hosts:
+- host: https://www.exotec.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+  - path: /llms.txt
+    status: 200
+    content_type: text/plain
+    file: ../llms/exotec-llms.txt
+  - path: /robots.txt
+    status: 200
+  - path: /sitemap.xml
+    status: 200
+- host: https://exotec.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /llms.txt
+    status: 200
+summary:
+  documents_found: 0
+  security_txt: false
+  openid_configuration: false
+  oauth_authorization_server: false
+  api_catalog: false
+  agent_card: false
+x-evidence:
+  fetched: '2026-07-31'
+  method: curl -s -o /dev/null -w '%{http_code}' -L

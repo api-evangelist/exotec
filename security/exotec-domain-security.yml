@@ -1,0 +1,36 @@
+generated: '2026-07-31'
+method: probed
+source: live DNS/TLS/HTTP probes of apis.yml + OpenAPI hosts
+hosts:
+- host: www.exotec.com
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Oct 18 12:30:12 2026 GMT
+  hsts: true
+  hsts_max_age: 31622400
+domains:
+- domain: exotec.com
+  dnssec: false
+  caa: []
+  spf: true
+  dmarc: true
+  dmarc_policy: quarantine
+observations:
+- kind: dangling-cname
+  host: api.exotec.com
+  record: CNAME dc50zvit13.execute-api.eu-west-3.amazonaws.com.
+  target_resolves: false
+  target_status: NXDOMAIN
+  resolvers_checked: [8.8.8.8, 1.1.1.1, system]
+  fetched: '2026-07-31'
+  note: >-
+    api.exotec.com still publishes a CNAME to an AWS API Gateway regional custom domain
+    in eu-west-3 whose target no longer resolves (NXDOMAIN). The API host is therefore
+    unreachable, and an unclaimed API Gateway custom-domain CNAME is the classic
+    subdomain-takeover exposure class. Recorded as observed DNS data only.
+- kind: no-caa
+  domain: exotec.com
+  note: No CAA records published, so certificate issuance is not restricted to named CAs.
+- kind: no-dnssec
+  domain: exotec.com
+  note: DNSSEC is not enabled on exotec.com.

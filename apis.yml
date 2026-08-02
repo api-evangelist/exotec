@@ -1,17 +1,40 @@
 aid: exotec
 name: Exotec
-description: 'Exotec is a company surfaced via the API Evangelist harvest backlog (source: secondary-market)
-  and added to the network as a stub for full-pipeline profiling.'
+description: 'Exotec is a French warehouse automation manufacturer and integrator, founded
+  in 2015 and headquartered in Croix, France, that builds the Skypod robotic automated
+  storage and retrieval system (AS/RS) and the Deepsky warehouse execution system (WES)
+  that orchestrates it. Skypod combines autonomous three-dimensional mobile robots,
+  modular racking, picking workstations and inbound exchangers into an all-in-one goods-to-person
+  system; Deepsky is the software layer that coordinates the robots, stations and third-party
+  equipment and connects the installation to a customer''s WMS or WCS over a RESTful
+  web-services interface. Exotec reports more than 10,000 robots deployed across over
+  200 customer sites for more than 50 brands including Decathlon, Renault Group, DSV,
+  Carrefour, Gap and Uniqlo, serving apparel, general merchandise, aftermarket parts,
+  grocery, third-party logistics and healthcare fulfillment. The Deepsky WMS integration
+  interface is delivered as customer-specific documentation under a commercial deployment
+  rather than a public developer program, so Exotec publishes no open developer portal,
+  API reference or SDK. It does publish an llms.txt at its web root and holds ISO/IEC
+  27001:2022 certification and SOC 2 Type 2 compliance.'
 url: https://raw.githubusercontent.com/api-evangelist/exotec/refs/heads/main/apis.yml
 x-type: company
 x-source: harvest:secondary-market
-x-tier: stub
+x-tier: profiled
 x-tier-reason: harvest
+image: https://www.exotec.com/apple-touch-icon.png
 specificationVersion: '0.20'
 created: '2026-07-31'
 modified: '2026-07-31'
 tags:
 - Company
+- Warehouse Automation
+- Robotics
+- Logistics
+- Supply Chain
+- Fulfillment
+- Warehouse Execution System
+- Warehouse Management
+- Industrial Automation
+- Manufacturing
 apis: []
 maintainers:
 - FN: Kin Lane
@@ -19,5 +42,48 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: DomainSecurity
+  url: security/exotec-domain-security.yml
 - type: Website
+  url: https://www.exotec.com/
+- type: SecondaryMarket
   url: https://forgeglobal.com/exotec_stock/
+- type: Documentation
+  url: https://www.exotec.com/system/warehouse-optimization-software/
+- type: Support
+  url: https://www.exotec.com/warehouse-automation-support/
+- type: Blog
+  url: https://www.exotec.com/insights/
+- type: News
+  url: https://www.exotec.com/news/
+- type: Contact
+  url: https://www.exotec.com/contact/
+- type: TermsOfService
+  url: https://www.exotec.com/legal-notice/
+- type: PrivacyPolicy
+  url: https://www.exotec.com/privacy-statement-eu/
+- type: CookiePolicy
+  url: https://www.exotec.com/cookie-policy-eu/
+- type: About
+  url: https://www.exotec.com/company/
+- type: Careers
+  url: https://www.exotec.com/careers/
+- type: Partners
+  url: https://www.exotec.com/en-gb/integrators/
+- type: Compliance
+  url: https://www.exotec.com/news/exotec-achieves-soc2-type-2-compliance-just-months-after-obtaining-iso-iec-270012022-cybersecurity-certification/
+- type: Sustainability
+  url: https://www.exotec.com/sustainability/
+- type: LLMsTxt
+  url: llms/exotec-llms.txt
+- type: Packages
+  url: packages/exotec-packages.yml
+- type: Conformance
+  url: conformance/exotec-conformance.yml
+- type: Lifecycle
+  url: lifecycle/exotec-lifecycle.yml
+x-enrichment:
+  date: '2026-07-31'
+  status: enriched
+  artifacts_added: 6
+  pass: local-v1
