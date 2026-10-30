@@ -64,37 +64,85 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Exotec is a French warehouse automation manufacturer and integrator (founded 2015, headquartered in Croix, France) that builds the **Skypod** robotic automated storage and retrieval system (AS/RS) and the **Deepsky** warehouse execution system (WES) that orchestrates it. More than 10,000 robots are deployed across 200+ customer sites for 50+ brands.
+Exotec is a French warehouse automation manufacturer and integrator, founded in 2015 and headquartered in Croix, France, that builds the Skypod robotic automated storage and retrieval system (AS/RS) and the Deepsky warehouse execution system (WES) that orchestrates it. Skypod combines autonomous three-dimensional mobile robots, modular racking, picking workstations and inbound exchangers into an all-in-one goods-to-person system; Deepsky is the software layer that coordinates the robots, stations and third-party equipment and connects the installation to a customer's WMS or WCS over a RESTful web-services interface. Exotec reports more than 10,000 robots deployed across over 200 customer sites for more than 50 brands including Decathlon, Renault Group, DSV, Carrefour, Gap and Uniqlo, serving apparel, general merchandise, aftermarket parts, grocery, third-party logistics and healthcare fulfillment. The Deepsky WMS integration interface is delivered as customer-specific documentation under a commercial deployment rather than a public developer program, so Exotec publishes no open developer portal, API reference or SDK. It does publish an llms.txt at its web root and holds ISO/IEC 27001:2022 certification and SOC 2 Type 2 compliance.
 
-- Website: https://www.exotec.com/
-- Deepsky WES: https://www.exotec.com/system/warehouse-optimization-software/
-- Support: https://www.exotec.com/warehouse-automation-support/
-- Secondary market listing: https://forgeglobal.com/exotec_stock/
+**Areas:** Company · Warehouse Automation · Robotics · Logistics · Supply Chain · Fulfillment · Warehouse Execution System · Warehouse Management · Industrial Automation · Manufacturing
 
-## API posture
+## Exotec on APIs.io
 
-Exotec's Deepsky WES / Astar WCS connects to a customer's WMS over a RESTful web-services
-interface, but **that interface is not public**. It is delivered as customer-specific
-functional documentation under a commercial deployment, so there is no developer portal,
-no API reference, no OpenAPI/AsyncAPI/GraphQL/MCP surface, no SDK and no sandbox.
+Everything profiled for Exotec is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/exotec/](https://apis.io/providers/exotec/)** — or go straight to one of the APIs or properties below.
 
-Contract discovery on 2026-07-31 probed every plausible host and path and found nothing:
-`developer.`, `docs.`, `api.`, `portal.`, `my.`, `app.`, `status.` all NXDOMAIN;
-`/openapi.json`, `/swagger.json` and every `/.well-known/*` path 404.
-`api.exotec.com` still carries a **dangling CNAME** to a removed AWS API Gateway custom
-domain (`dc50zvit13.execute-api.eu-west-3.amazonaws.com`, NXDOMAIN) — recorded in
-`security/exotec-domain-security.yml`.
+### Published properties
 
-## Artifacts
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-| Artifact | Method | Notes |
-|---|---|---|
-| `llms/exotec-llms.txt` | searched | Real provider-published `llms.txt` from https://www.exotec.com/llms.txt, saved verbatim — includes Preferred Citations and Authoritative Sources guidance for AI consumers |
-| `conformance/exotec-conformance.yml` | searched | ISO/IEC 27001:2022 + SOC 2 Type 2 confirmed; full contract-discovery negative record |
-| `packages/exotec-packages.yml` | searched | No client SDK on any registry; one first-party npm test utility; two `@exotec/*` packages excluded as a different entity (exotec.de) |
-| `lifecycle/exotec-lifecycle.yml` | searched | Product-generation lifecycle (First Gen / Next Gen Skypod) + 98% availability contractual benchmark; no API versioning or deprecation policy |
-| `security/exotec-domain-security.yml` | probed | TLS 1.3, HSTS, SPF, DMARC quarantine; no DNSSEC, no CAA; dangling `api.` CNAME |
-| `well-known/exotec-well-known.yml` | probed | All well-known paths 404 — honest negative index, no pointer wired |
+#### Security (1)
 
-No agent card, MCP server, AsyncAPI, webhooks, status page, security.txt, bug bounty,
-CLI, components, changelog or sandbox exist — nothing was authored on Exotec's behalf.
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Exotec Domain Security](https://apis.io/security/exotec/exotec-domain-security/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.exotec.com/)
+- [Documentation](https://www.exotec.com/system/warehouse-optimization-software/)
+- [Support](https://www.exotec.com/warehouse-automation-support/)
+- [Blog](https://www.exotec.com/insights/)
+- [Compliance](https://www.exotec.com/news/exotec-achieves-soc2-type-2-compliance-just-months-after-obtaining-iso-iec-270012022-cybersecurity-certification/)
+- [Terms of service](https://www.exotec.com/legal-notice/)
+- [Privacy policy](https://www.exotec.com/privacy-statement-eu/)
+
+## API Evangelist rating
+
+**Kin Score 18.2** — emerging · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 56.3 |
+| Contract quality | 0.0 |
+| Contract governance | 18.2 |
+| Operational transparency | 0.0 |
+| Developer ergonomics | 16.7 |
+| Access clarity | 28.9 |
+
+**Agent readiness 0.0** — human-only
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | — |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | — |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 23.5** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/exotec/](https://apis.io/providers/exotec/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Exotec: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/exotec/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
